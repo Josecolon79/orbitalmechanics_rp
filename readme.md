@@ -8,7 +8,7 @@ Clone the directory. \
 \
 Most of the files require the NAIF CSPICE toolkit to be installed. Download the 'mice.zip' file [HERE](https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html) and extract its contents to: orbitalmechanics_rp/MICE/ \
 \
-The de438.bsp planetary kernal file is required. Download it [HERE](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/) and copy/paste it to: orbitalmechanics_rp/src/SPKs \
+The de438.bsp planetary kernel file is required. Download it [HERE](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/) and copy/paste it to: orbitalmechanics_rp/src/SPKs \
 \
 **RUNNING** add <yourpath>/orbitalmechanics_rp to the MATLAB path and make sure to include all files and subfolders.
 
