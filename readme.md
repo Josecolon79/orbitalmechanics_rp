@@ -51,10 +51,10 @@ ________________________________________________________________________________
 2. Porkchop Plotter using Lambert Arcs and CSPICE data
 /src/pkchp_plotter/pkchp_plotter.m
 
-	**Requires CSPICE** \
-	**CREDIT TO: David Eagle for the Gooding Lambert Solver** \
-	David Eagle's lambert functions located in /src/lambert/lambert_source/ are provided, but note they originally from: \
-	https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
+**Requires CSPICE** \
+**CREDIT TO: David Eagle for the Gooding Lambert Solver** \
+David Eagle's lambert functions located in /src/lambert/lambert_source/ are provided, but note they originally from: \
+https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
 
 
 	Creates a contour plot of departure and arrival DeltaVs based on Lambert fits
