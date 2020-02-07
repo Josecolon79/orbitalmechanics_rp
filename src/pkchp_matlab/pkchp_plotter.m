@@ -1,0 +1,95 @@
+%% Porkchop Plot from Itterative Lambert Arc Calculation
+% C: 13SEP19
+clear; close all; clc; format long g;
+
+%% Kernals Initialization
+% CSPICE MICE integration 
+cspice_kclear;
+nf009 = [pwd,filesep,fullfile('src','SPKs','naif0009.tls')];
+de438 = [pwd,filesep,fullfile('src','SPKs','de438.bsp')];
+cspice_furnsh({de438,nf009})
+
+%% Inputs
+tic
+plt = 1;    % 1=Plot Porkchop
+
+% Bodies
+depbdy = '3';
+arrbdy = '4';   
+[ctr_bdy] = mice_bodc2n(0);
+mu = 1.32712*10^11;
+
+% Days and Bounds
+et1 = cspice_str2et( {'Jan 01, 2020', 'Dec 31, 2021'} );
+et2 = et1;
+num_of_Pts = 100;
+dvmaxd = 15;
+dvmaxa = 15;
+
+%% Lambert Calculation
+% cspice_etcal(number) <-- conv to UTC date/time
+t1 = (0:num_of_Pts-1) * ( et1(2) - et1(1) )/num_of_Pts + et1(1);
+t2 = (0:num_of_Pts-1) * ( et2(2) - et2(1) )/num_of_Pts + et2(1);
+pb1 = mice_spkezr(depbdy, t1, 'J2000', 'NONE', ctr_bdy.name );
+pb2 = mice_spkezr(arrbdy, t1, 'J2000', 'NONE', ctr_bdy.name );
+
+for i=1:length(t1)
+    for j=1:length(t2)
+        tof(i,j) = t2(j) - t1(i);
+        if tof(i,j) <= 0
+            vimag(i,j) = NaN;
+            vfmag(i,j) = NaN;
+        else
+            lambcall = {l0(1,pb1(i).state,pb2(j).state,tof(i,j),mu)};
+            vi_mag = lambcall{1,1}(1);
+            vf_mag = lambcall{1,1}(2);
+            if vi_mag > dvmaxd
+                vimag(i,j) = NaN;
+            else 
+                vimag(i,j) = vi_mag;
+            end
+            if vf_mag > dvmaxa
+                vfmag(i,j) = NaN;
+            else 
+                vfmag(i,j) = vf_mag;
+            end            
+        end
+    end
+end
+
+
+% TOF Post Processing
+for i=1:length(tof)
+    for j=1:length(tof)
+        if tof(i,j) < 0
+            tof(i,j) = NaN;
+        else
+            tof(i,j) = tof(i,j)/86400;
+        end
+    end
+end
+
+%% Plotting 
+if plt==1
+    hold on
+    [c1,h1] = contour(t1,t2,vimag',8,'b');
+    clabel(c1,h1,'fontname','courier new','color','b');
+    %colorbar
+    [C,h] = contour(t1,t2,vfmag',8,'k');
+    clabel(C,h,'fontname','courier new');
+    [CC,hh] = contour(t1,t2,tof',10,'r','linewidth',2);
+    clabel(CC,hh,'fontname','courier new','color','r');
+    hold off
+    ax = gca;
+    set(gcf,'Color',[0.95 0.95 0.95]);
+    set(gca,'Color',[0.95 0.95 0.95],'fontname','courier new');
+    ytickangle(45)
+    ax.YAxis.TickLabelFormat = '%.5f';
+    ax.XAxis.TickLabelFormat = '%.5f';
+    grid on
+    legend({'Departure V_\infty (km/s)','Arrival V_\infty (km/s)','Time of Flight (Days)'},'fontsize',14,'location','southeast')
+    title(['Single Rev. Type 1 and 2 Transfer Between Bodies: ',depbdy,' and ',arrbdy],'fontsize',16,'fontname','courier new')
+    xlabel([depbdy,' Departure Date'],'fontsize',14,'fontname','courier new');
+    ylabel([arrbdy,' Arrival Date'],'fontsize',14,'fontname','courier new');
+end
+toc
