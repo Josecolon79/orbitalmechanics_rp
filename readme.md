@@ -61,7 +61,7 @@ ________________________________________________________________________________
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### 2. Porkchop Plotter using Lambert Arcs and CSPICE data
-/src/pkchp_plotter/pkchp_plotter.m
+/src/pkchp_matlab/pkchp_plotter.m
 
 **Requires CSPICE** \
 **CREDIT TO: David Eagle for the Gooding Lambert Solver** \
