@@ -2,7 +2,7 @@
 C: 31DEC19 LM: 07FEB20
 
 _______________________________________________________________________________________
-## Installation:
+## Installation
 Clone the directory. \
 \
 Most of the files require the NAIF CSPICE toolkit to be installed. Download the 'mice.zip' file [HERE](https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html) and extract its contents to: orbitalmechanics_rp/MICE/ \
@@ -13,7 +13,7 @@ The de438.bsp planetary kernal file is required. Download it [HERE](https://naif
 
 
 _______________________________________________________________________________________
-## Functions/Scripts:
+## Functions/Scripts
 	1. l0() 		Lambert Fit (Gooding Alg.)(Uses David Eagle's MATLAB code *see below*)
 	2. plotOrbGeneric()	Takes inputs for basic trajectory visualization in an inertial frame
 	3. tbp()		Two Body Propagator
@@ -21,7 +21,7 @@ ________________________________________________________________________________
 	5. execError()		Execution Error for DeltaVs Calculator (to 3sigma)
 	
 _______________________________________________________________________________________
-## Scripts:
+## Scripts
 	1. executionerrors.m		Propagation of random generated execution errors within std. dev. limits
 	2. dev_testl0.m			Lambert DV given SPICE body inputs
 	3. LV_perf.m			Launch Vehicle Energy vs. Mass Delivered for Interplanetary Trajectories
@@ -32,7 +32,7 @@ ________________________________________________________________________________
 	8. dev_orbfromspk.m		Plotting SPICE .bsp bodies using vis code
 	9. dev_pltAnd2bpintegration.m	Using 2BP to create trajectory and plotting with vis code
 _______________________________________________________________________________________
-## Function Details:
+## Function Details
 
 ### 1. Lambert Fit (Gooding Alg.)
 /src/lambert/l0.m
