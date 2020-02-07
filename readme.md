@@ -1,17 +1,26 @@
-Orbital Mechanics and SMD MATLAB/Python Code
+# Orbital Mechanics/SMD MATLAB and Python Code
 C: 31DEC19 LM: 07FEB20
-
 _______________________________________________________________________________________
-
-Source_Common Functions/Scripts:
-	1. l0() 		Lambert Fit (Gooding Alg.)
-	2. pkchp_plotter.m	Porkchop Plotter using Lambert Arcs and CSPICE data
+## Functions/Scripts:
+	1. l0() 		Lambert Fit (Gooding Alg.)(Uses David Eagle's MATLAB code *see below*)
+	2. plotOrbGeneric()	Takes inputs for basic trajectory visualization in an inertial frame
 	3. tbp()		Two Body Propagator
 	4. plotOrbGeneric()	Generic Orbit State Data Visualization
-	5. execErrors()		Execution Error for DeltaVs Calculator (up to 3sigma)
+	5. execError()		Execution Error for DeltaVs Calculator (to 3sigma)
+	
 _______________________________________________________________________________________
-
-Function Details:
+## Scripts:
+	1. executionerrors.m		Propagation of random generated execution errors within std. dev. limits
+	2. dev_testl0.m			Lambert DV given SPICE body inputs
+	3. LV_perf.m			Launch Vehicle Energy vs. Mass Delivered for Interplanetary Trajectories
+	4. pkchp_plotter.m		Porkchop Plotter using Lambert Arcs and CSPICE data
+	5. pkchp.py			(PYTHON) Porkchop Plotter using the Spiceypy wrapper for SPICE
+	6. twobodyprop_solar.m		Heliocentric 2BP example (uses data from CSPICE bodies)
+	7. twobodyprop.m		Earth centered 2BP example using conventional r and v.
+	8. dev_orbfromspk.m		Plotting SPICE .bsp bodies using vis code
+	9. dev_pltAnd2bpintegration.m	Using 2BP to create trajectory and plotting with vis code
+_______________________________________________________________________________________
+## Function Details:
 
 1. Lambert Fit (Gooding Alg.)
 /src/lambert/l0.m
@@ -42,28 +51,31 @@ Function Details:
 2. Porkchop Plotter using Lambert Arcs and CSPICE data
 /src/pkchp_plotter/pkchp_plotter.m
 
-**Requires CSPICE***
-**Requires David Eagle's Lambert Code***
+	**Requires CSPICE** \
+	**CREDIT TO: David Eagle for the Gooding Lambert Solver** \
+	David Eagle's lambert functions located in /src/lambert/lambert_source/ are provided, but note they originally from: \
+	https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
+
 
 	Creates a contour plot of departure and arrival DeltaVs based on Lambert fits
 	of type I and II trajectories that are less than 1 revolution. 
  
-	Inputs:
-	   plt = (1 - ON) Display the contour plot result
-	   depbdy = Departure body SPICE ID (1x1) string
-	   arrbdy = Arrival body SPICE ID (1x1) string
-	   Default Center Body = 0 (Sun)
-	   mu = Gravitational Constant of Center Body (km^3/s^2) (default is Sun)
-	   et1 = Dep./Arr. Date pair in calendar format 'Mmm DD, YYYY'
-	   num_of_Pts = number of sampled epochs between the et1 bounds.
-	   dvmaxd = Maximum DeltaV magnitude for the departure.
-	   dvmaxa = Maximum DeltaV magnitude for the arrival.
+	Inputs: \
+	   plt = (1 - ON) Display the contour plot result \
+	   depbdy = Departure body SPICE ID (1x1) string \
+	   arrbdy = Arrival body SPICE ID (1x1) string \
+	   Default Center Body = 0 (Sun) \
+	   mu = Gravitational Constant of Center Body (km^3/s^2) (default is Sun) \
+	   et1 = Dep./Arr. Date pair in calendar format 'Mmm DD, YYYY' \
+	   num_of_Pts = number of sampled epochs between the et1 bounds. \
+	   dvmaxd = Maximum DeltaV magnitude for the departure. \
+	   dvmaxa = Maximum DeltaV magnitude for the arrival. \
 
-	Outputs:
-	   Contour Plot with:
-		1. Departure DeltaV Magnitude
-		2. Arrival DeltaV Magnitude
-		3. Time of Flight in Days
+	Outputs: \
+	   Contour Plot with:\
+		1. Departure DeltaV Magnitude \
+		2. Arrival DeltaV Magnitude \
+		3. Time of Flight in Days \
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 3. Two Body Propagator
