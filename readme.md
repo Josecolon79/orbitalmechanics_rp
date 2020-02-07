@@ -22,7 +22,7 @@ ________________________________________________________________________________
 _______________________________________________________________________________________
 ## Function Details:
 
-1. Lambert Fit (Gooding Alg.)
+### 1. Lambert Fit (Gooding Alg.)
 /src/lambert/l0.m
 
         Calculates a single lambert arc fit DeltaV values
@@ -48,7 +48,7 @@ ________________________________________________________________________________
                 l1result(2,:) = [Vx, Vy, Vz] @ Arrival
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-2. Porkchop Plotter using Lambert Arcs and CSPICE data
+### 2. Porkchop Plotter using Lambert Arcs and CSPICE data
 /src/pkchp_plotter/pkchp_plotter.m
 
 **Requires CSPICE** \
@@ -78,7 +78,7 @@ https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
 		3. Time of Flight in Days \
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-3. Two Body Propagator
+### 3. Two Body Propagator
 /src/twobodyprop/tbp.m
 
     A simple two body propagator using ODE45
@@ -103,7 +103,7 @@ https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
         7. t (physical time in seconds)
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-4. Generic Orbit State Data Visualization
+### 4. Generic Orbit State Data Visualization
 /src/visualization/plotOrbGeneric.m
 
     Inputs:
@@ -122,7 +122,7 @@ https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
-5. Execution Error for DeltaVs Calculator (up to 3sigma)
+### 5. Execution Error for DeltaVs Calculator (up to 3sigma)
 /src/execErrors/execErrors.m
 
  execError Creates Error Delta Values Given a Velocity Vector
