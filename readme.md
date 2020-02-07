@@ -72,22 +72,22 @@ https://www.mathworks.com/matlabcentral/fileexchange/39530-lambert-s-problem \
 	Creates a contour plot of departure and arrival DeltaVs based on Lambert fits
 	of type I and II trajectories that are less than 1 revolution. 
  
-	Inputs: \
-	   plt = (1 - ON) Display the contour plot result \
-	   depbdy = Departure body SPICE ID (1x1) string \
-	   arrbdy = Arrival body SPICE ID (1x1) string \
-	   Default Center Body = 0 (Sun) \
-	   mu = Gravitational Constant of Center Body (km^3/s^2) (default is Sun) \
-	   et1 = Dep./Arr. Date pair in calendar format 'Mmm DD, YYYY' \
-	   num_of_Pts = number of sampled epochs between the et1 bounds. \
-	   dvmaxd = Maximum DeltaV magnitude for the departure. \
-	   dvmaxa = Maximum DeltaV magnitude for the arrival. \
+	Inputs: 
+	   plt = (1 - ON) Display the contour plot result 
+	   depbdy = Departure body SPICE ID (1x1) string 
+	   arrbdy = Arrival body SPICE ID (1x1) string 
+	   Default Center Body = 0 (Sun) 
+	   mu = Gravitational Constant of Center Body (km^3/s^2) (default is Sun) 
+	   et1 = Dep./Arr. Date pair in calendar format 'Mmm DD, YYYY' 
+	   num_of_Pts = number of sampled epochs between the et1 bounds. 
+	   dvmaxd = Maximum DeltaV magnitude for the departure. 
+	   dvmaxa = Maximum DeltaV magnitude for the arrival. 
 
-	Outputs: \
-	   Contour Plot with:\
-		1. Departure DeltaV Magnitude \
-		2. Arrival DeltaV Magnitude \
-		3. Time of Flight in Days \
+	Outputs: 
+	   Contour Plot with:
+		1. Departure DeltaV Magnitude 
+		2. Arrival DeltaV Magnitude 
+		3. Time of Flight in Days 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 ### 3. Two Body Propagator
