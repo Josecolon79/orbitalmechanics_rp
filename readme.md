@@ -1,8 +1,10 @@
 # Orbital Mechanics/SMD MATLAB and Python Code
 C: 31DEC19 LM: 07FEB20
-
 _______________________________________________________________________________________
-## Installation
+## Compatibility and Installation
+Tested on Windows and UNIX (MacOS). Modifications for compatibility are not required. \
+\
+\
 Clone the directory. \
 \
 Most of the files require the NAIF CSPICE toolkit to be installed. Download the 'mice.zip' file [HERE](https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html) and extract its contents to: orbitalmechanics_rp/MICE/ \
