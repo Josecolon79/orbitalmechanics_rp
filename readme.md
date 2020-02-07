@@ -16,10 +16,9 @@ The de438.bsp planetary kernal file is required. Download it [HERE](https://naif
 _______________________________________________________________________________________
 ## Main Functions
 	1. l0() 		Lambert Fit (Gooding Alg.)(Uses David Eagle's MATLAB code *see below*)
-	2. plotOrbGeneric()	Takes inputs for basic trajectory visualization in an inertial frame
-	3. tbp()		Two Body Propagator
-	4. plotOrbGeneric()	Generic Orbit State Data Visualization
-	5. execError()		Execution Error for DeltaVs Calculator (to 3sigma)
+	2. tbp()		Two Body Propagator
+	3. plotOrbGeneric()	Generic Orbit State Data Visualization
+	4. execError()		Execution Error for DeltaVs Calculator (to 3sigma)
 _______________________________________________________________________________________
 ## Scripts
 	1. executionerrors.m		Propagation of random generated execution errors within std. dev. limits
