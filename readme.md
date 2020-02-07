@@ -5,7 +5,7 @@ ________________________________________________________________________________
 ## Installation:
 	1. Clone directory
 	2. Download and extract contents of 'mice.zip' into library MICE folder in library directory. Link: https://naif.jpl.nasa.gov/naif/toolkit_MATLAB.html
-	3. Download de438.bsp from: https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/
+	3. Download de438.bsp from the [NAIF Website](https://naif.jpl.nasa.gov/pub/naif/generic_kernels/spk/planets/)
 	4. Copy/Paste de438.bsp to ./src/SPKs	(NOTE: any other kernal files can be placed here to be loaded)
 	5. **RUNNING** add <someth_path>/orbitalmechanics_rp to MATLAB path (inc. all files and subfolder)
 
