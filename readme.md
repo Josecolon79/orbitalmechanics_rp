@@ -5,7 +5,7 @@ C: 31DEC19 LM: 07FEB20
 http://rohandpatel.com/projects/orbital-mechanics-library-for-matlab-and-python/
 _______________________________________________________________________________________
 ## Compatibility and Installation
-Tested on Windows and UNIX (MacOS). Modifications for compatibility are not required. \
+Tested on Windows and UNIX (MacOS). Modifications for compatibility are not required. Python: Spicepy and Pykep libraries are required. \
 \
 Clone the directory. \
 \
