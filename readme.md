@@ -1,7 +1,7 @@
 # Orbital Mechanics/SMD MATLAB and Python Code
 C: 31DEC19 LM: 07FEB20
 
-## Website
+## Function/Script Demos
 http://rohandpatel.com/projects/orbital-mechanics-library-for-matlab-and-python/
 _______________________________________________________________________________________
 ## Compatibility and Installation
