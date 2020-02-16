@@ -17,10 +17,10 @@ function l1result = l0(dataout,p1,p2,tof,mu)
 %           dataflag = 2
 %               l1result(1,:) = [deltaVx, deltaVy, deltaVz] @ Departure
 %               l1result(2,:) = [deltaVx, deltaVy, deltaVz] @ Arrival
-%               l1result(1,:) = [x, y, z] @ Departure
-%               l1result(2,:) = [x, y, z] @ Arrival
-%               l1result(1,:) = [Vx, Vy, Vz] @ Departure
-%               l1result(2,:) = [Vx, Vy, Vz] @ Arrival
+%               l1result(3,:) = [x, y, z] @ Departure
+%               l1result(4,:) = [x, y, z] @ Arrival
+%               l1result(5,:) = [Vx, Vy, Vz] @ Departure
+%               l1result(6,:) = [Vx, Vy, Vz] @ Arrival
 %
 
     r1 = [p1(1),p1(2),p1(3)];
@@ -45,9 +45,9 @@ function l1result = l0(dataout,p1,p2,tof,mu)
     dvi(1) = vito(1) - v1(1);
     dvi(2) = vito(2) - v1(2);
     dvi(3) = vito(3) - v1(3);
-    dvf(1) = v2(1) - vfto(1);
-    dvf(2) = v2(2) - vfto(2);
-    dvf(3) = v2(3) - vfto(3);
+    dvf(1) = vfto(1) - v2(1);
+    dvf(2) = vfto(2) - v2(2);
+    dvf(3) = vfto(3) - v2(3);
     
     if dataout == 1
         l1result = [norm(dvi),norm(dvf)];
