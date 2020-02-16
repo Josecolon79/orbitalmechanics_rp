@@ -47,9 +47,9 @@ function l1result = l1(ctrbdy,trgbdy1,trgbdy2,bdy1et,bdy2et,tof,flag)
     dvi(1) = vito(1) - v1(1);
     dvi(2) = vito(2) - v1(2);
     dvi(3) = vito(3) - v1(3);
-    dvf(1) = v2(1) - vfto(1);
-    dvf(2) = v2(2) - vfto(2);
-    dvf(3) = v2(3) - vfto(3);
+    dvf(1) = vfto(1) - v2(1);
+    dvf(2) = vfto(2) - v2(2);
+    dvf(3) = vfto(3) - v2(3);
   
     %l1result = {oevtoi,oevtof,dvi,dvf,r1,r2,v1,v2};
     l1results = {dvi,dvf,r1,r2,v1,v2};  %reduced output for saving comp. time
