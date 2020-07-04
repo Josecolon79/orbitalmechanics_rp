@@ -20,10 +20,10 @@ arrbdy = '4';
 mu = 1.32712*10^11;
 
 % Days and Bounds
-et1 = cspice_str2et( {'Jan 01, 2020', 'Dec 31, 2021'} );
+et1 = cspice_str2et( {'Jul 01, 2020', 'Feb 28, 2021'} );
 et2 = et1;
-num_of_Pts = 100;
-dvmaxd = 15;
+num_of_Pts = 1000;
+dvmaxd = 10;
 dvmaxa = 15;
 
 %% Lambert Calculation
@@ -71,14 +71,26 @@ end
 
 %% Plotting 
 if plt==1
+    
+    t1jd = cspice_et2utc( t1, 'J', 3 ); t1jd = str2num(t1jd(:,4:end));
+    t2jd = cspice_et2utc( t2, 'J', 3 ); t2jd = str2num(t2jd(:,4:end));
+
+    for i=1:length(t1jd)
+        t1day = datetime(t1jd(i),'ConvertFrom','juliandate');
+        t1days(i) = datenum(t1day);
+        t2day = datetime(t2jd(i),'ConvertFrom','juliandate');
+        t2days(i) = datenum(t2day);
+    end
+
     hold on
-    [c1,h1] = contour(t1,t2,vimag',8,'b');
+    [c1,h1] = contour(t1days,t2days,vimag',8,'b');
     clabel(c1,h1,'fontname','courier new','color','b');
     %colorbar
-    [C,h] = contour(t1,t2,vfmag',8,'k');
+    [C,h] = contour(t1days,t2days,vfmag',8,'k');
     clabel(C,h,'fontname','courier new');
-    [CC,hh] = contour(t1,t2,tof',10,'r','linewidth',2);
+    [CC,hh] = contour(t1days,t2days,tof',10,'r','linewidth',2);
     clabel(CC,hh,'fontname','courier new','color','r');
+    datetick('x','dd/mm/yyyy'); datetick('y','dd/mm/yyyy');
     hold off
     ax = gca;
     set(gcf,'Color',[0.95 0.95 0.95]);
